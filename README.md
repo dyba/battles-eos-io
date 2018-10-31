@@ -69,3 +69,49 @@ Use the ip address of the keosd container and create an alias for cleos:
 ```
 alias cleos='docker exec -it nodeos /opt/eosio/bin/cleos --url http://127.0.0.1:8888 --wallet-url http://172.18.0.3:9876'
 ```
+
+Create a wallet:
+
+```
+cleos wallet create --to-console
+```
+
+Don't forget to save the master password for the default wallet!
+
+To list all keys:
+
+```
+cleos wallet keys
+```
+
+To create keys:
+
+```
+cleos create key --to-console
+```
+
+Next, import both keys:
+
+```
+cleos wallet import --private-key PRIVATE_KEY1
+```
+
+Make sure you select the private key and not the public key, otherwise, you'll get an error.
+
+Verify that you've imported your key:
+
+```
+cleos wallet keys
+```
+
+You'll now see your public key. To see your private key:
+
+```
+cleos wallet private_keys --password YOUR_WALLET_PASSWORD
+```
+
+Now, to create your account, you must first unlock the wallet:
+
+```
+cleos wallet unlock -n WALLET_NAME -p WALLET_PASSWORD
+```
