@@ -90,10 +90,13 @@ To create keys:
 cleos create key --to-console
 ```
 
+Do this twice!
+
 Next, import both keys:
 
 ```
 cleos wallet import --private-key PRIVATE_KEY1
+cleos wallet import --private-key PRIVATE_KEY2
 ```
 
 Make sure you select the private key and not the public key, otherwise, you'll get an error.
@@ -114,4 +117,16 @@ Now, to create your account, you must first unlock the wallet:
 
 ```
 cleos wallet unlock -n WALLET_NAME -p WALLET_PASSWORD
+```
+
+Don't forget to import the private key for eosio to your default wallet:
+
+```
+cleos wallet import -n default
+```
+
+Create your account:
+
+```
+cleos create account eosio NEW_ACCOUNT OWNER_KEY ACTIVE_KEY 
 ```
