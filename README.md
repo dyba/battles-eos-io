@@ -3,7 +3,7 @@
 Pull the eos-dev docker image:
 
 ```
-docker pull eosio/eos-dev:v1.2.5
+docker pull eosio/eos-dev:v1.3.0
 ```
 
 Create a local network:
@@ -17,7 +17,7 @@ Create the Nodeos container:
 ```
 docker run --name nodeos -d -p 8888:8888 --network eosdev \
 -v /tmp/eosio/work:/work -v /tmp/eosio/data:/mnt/dev/data \
--v /tmp/eosio/config:/mnt/dev/config eosio/eos-dev:v1.2.5  \
+-v /tmp/eosio/config:/mnt/dev/config eosio/eos-dev:v1.3.0  \
 /bin/bash -c "nodeos -e -p eosio --plugin eosio::producer_plugin \
 --plugin eosio::history_plugin --plugin eosio::chain_api_plugin \
 --plugin eosio::history_api_plugin \
@@ -31,7 +31,7 @@ Run the Keosd container:
 
 ```
 docker run -d --name keosd --network=eosdev \
--i eosio/eos-dev:v1.2.5 /bin/bash -c "keosd --http-server-address=0.0.0.0:9876"
+-i eosio/eos-dev:v1.3.0 /bin/bash -c "keosd --http-server-address=0.0.0.0:9876"
 ```
 
 Verify your installation:
