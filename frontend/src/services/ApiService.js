@@ -51,6 +51,7 @@ class ApiService {
     return new Promise((resolve, reject) => {
       localStorage.setItem("cardgame_account", username);
       localStorage.setItem("cardgame_key", key);
+
       takeAction("login", { username: username })
         .then(() => {
           resolve();

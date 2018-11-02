@@ -62,7 +62,8 @@ class Login extends Component {
             <label>Account name</label>
             <input
               type="text"
-              name={ form.username }
+              name="username"
+              value={ form.username }
               placeholder="All small letters, a-z, 1-5 or dot, max 12 characters"
               onChange={ this.handleChange }
               pattern="[\.a-z1-5]{2,12}"
