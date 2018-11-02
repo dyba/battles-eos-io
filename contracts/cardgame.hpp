@@ -2,18 +2,17 @@
 
 using namespace std;
 
-class [[eosio::contract]] cardgame : public eosio::contract {
+class[[eosio::contract]] cardgame : public eosio::contract {
 
 public:
+  cardgame(eosio::name receiver, eosio::name code,
+           eosio::datastream<const char *> ds)
+      : contract(receiver, code, ds), _users(receiver, 0){};
 
-  cardgame( eosio::name receiver, eosio::name code, eosio::datastream<const char*> ds ): contract(receiver, code, ds),_users(receiver, 0) {}
-
-  [[eosio::action]]
-  void login(eosio::name username);
+  [[eosio::action]] void login(eosio::name username);
 
 private:
-
-  struct [[eosio::table]] user {
+  struct[[eosio::table]] user {
     eosio::name key;
     uint16_t win_count = 0;
     uint16_t lost_count = 0;
@@ -21,7 +20,7 @@ private:
     uint64_t primary_key() const { return key.value; }
   };
 
-  typedef eosio::multi_index<"users"_n, user> user_index;
+  typedef eosio::multi_index<"user"_n, user> user_index;
 
   user_index _users;
 };
