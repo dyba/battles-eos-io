@@ -1,3 +1,3 @@
 #!/bin/sh
 
-eosio-cpp -o cardgame.wasm contracts/cardgame.cpp --abigen
+eosio-cpp -abigen cardgame.cpp -o cardgame.wasm
