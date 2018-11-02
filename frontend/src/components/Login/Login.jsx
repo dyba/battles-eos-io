@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'components';
-import { UserAction } from 'actions';
-import { ApiService } from 'services';
+import Button from '../Button';
+import { UserAction } from '../../actions';
+import { ApiService } from '../../services';
 
 class Login extends Component {
 

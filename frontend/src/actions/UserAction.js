@@ -1,4 +1,4 @@
-import { ActionTypes } from 'const';
+import { ActionTypes } from '../const';
 
 class UserAction {
 
