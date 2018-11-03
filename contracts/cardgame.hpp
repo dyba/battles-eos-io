@@ -20,7 +20,7 @@ private:
     uint64_t primary_key() const { return key.value; }
   };
 
-  typedef eosio::multi_index<"user"_n, user> user_index;
+  typedef eosio::multi_index<"users"_n, user> users_table;
 
-  user_index _users;
+  users_table _users;
 };
