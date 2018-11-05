@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '../PlayerProfile';
+import Button from '../Button';
 
 class PlayerProfile extends Component {
 
