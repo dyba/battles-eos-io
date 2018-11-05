@@ -7,7 +7,7 @@ class [[eosio::contract]] cardgame : public eosio::contract {
  public:
   cardgame(eosio::name receiver, eosio::name code,
            eosio::datastream<const char *> ds)
-      : contract(receiver, code, ds), _users(receiver, 0){};
+    : contract(receiver, code, ds), _users(receiver, code.value){};
 
   [[eosio::action]] void login(eosio::name username);
 
