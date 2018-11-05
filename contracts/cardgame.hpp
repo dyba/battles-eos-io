@@ -20,7 +20,7 @@ class [[eosio::contract]] cardgame : public eosio::contract {
     uint64_t primary_key() const { return key.value; }
   };
 
-  typedef eosio::multi_index<"users"_n, user> users_table;
+  typedef eosio::multi_index<"users"_n, user> user_index;
 
-  users_table _users;
+  user_index _users;
 };
