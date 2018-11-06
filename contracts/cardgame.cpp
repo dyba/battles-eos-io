@@ -27,26 +27,6 @@ void cardgame::startgame(eosio::name user) {
   });
 }
 
-void cardgame::draw_one_card(vector<uint8_t> &deck, vector<uint8_t> &hand) {
-  int deck_card_idx = random(deck.size());
-
-  int first_empty_slot = -1;
-  for (int i = 0; i <= hand.size(); i++) {
-    auto id = hand[i];
-
-    if (card_dict.at(id).type == EMPTY) {
-      first_empty_slot = i;
-      break;
-    }
-  }
-
-  eosio_assert(first_empty_slot != -1, "No empty slot in the player's hand");
-
-  hand[first_empty_slot] = deck[deck_card_idx];
-
-  deck.erase(deck.begin() + deck_card_idx);
-}
-
 void cardgame::playcard(eosio::name user, uint8_t player_card_idx) {
   require_auth(user);
 

@@ -14,7 +14,8 @@ public:
 
   [[eosio::action]] void startgame(eosio::name username);
 
-  [[eosio::action]] void playcard(eosio::name username, uint8_t player_card_idx);
+  [[eosio::action]] void playcard(eosio::name username,
+                                  uint8_t player_card_idx);
 
 private:
   enum game_status : int8_t { ONGOING = 0, PLAYER_WON = 1, PLAYER_LOST = -1 };
@@ -58,11 +59,11 @@ private:
     uint8_t life_lost_ai = 0;
   };
 
-  struct seed {
+  struct [[eosio::table]] seed {
     uint64_t key = 1;
     uint32_t value = 1;
 
-    auto primary_key() const { return key; }
+    uint64_t primary_key() const { return key; }
   };
 
   struct [[eosio::table]] user {
