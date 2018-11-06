@@ -51,6 +51,14 @@ class ApiService {
     return takeAction("startgame", { username: localStorage.getItem("cardgame_account") });
   }
 
+  static nextRound() {
+    return takeAction("nextround", { username: localStorage.getItem("cardgame_account") });
+  }
+
+  static endGame() {
+    return takeAction("endgame", { username: localStorage.getItem("cardgame_account") });
+  }
+
   static playCard(cardIdx) {
     return takeAction("playcard", {
       username: localStorage.getItem("cardgame_account"),
