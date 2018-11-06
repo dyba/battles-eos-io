@@ -11,29 +11,51 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      loading: true
+    };
+
     this.getCurrentUser = this.getCurrentUser.bind(this);
     this.getCurrentUser();
   }
 
   getCurrentUser() {
     const { setUser } = this.props;
+
     return ApiService
       .getCurrentUser()
       .then(username => {
         setUser({ name: username })
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => {
+        this.setState({ loading: false });
+      });
   }
 
   render() {
-    const { user: { name } } = this.props;
+    const { loading } = this.state;
+    const { user: { name, game } } = this.props;
+
+    let appStatus = "login";
+
+    if (game && game.status !== 0) {
+      appStatus = "game-ended";
+    } else if (game && game.selected_card_ai > 0) {
+      appStatus = "card-selected";
+    } else if (game && game.deck_ai.length !== 17) {
+      appStatus = "started";
+    } else if (name) {
+      appStatus = "profile";
+    }
 
     return (
-      <div className="App">
-        { name && <Game />}
-        { !name && <Login />}
+      <div className={ `App status-${ appStatus }${ loading ? " loading" : "" }` }>
+      { name && <Game />}
+      { !name && <Login />}
       </div>
-    );
+    )
   }
 }
 
