@@ -11,9 +11,11 @@
     "redux": "^4.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start & npm run watch-css",
+    "build-css": "node-sass src/ -o src/",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch",
     "start:dev": "TS_NODE_PROJECT=tsconfig.webpack.json webpack-dev-server",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run build-css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -36,6 +38,7 @@
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.1",
     "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.10.0",
     "style-loader": "^0.23.1",
     "ts-loader": "^5.2.2",
     "ts-node": "^7.0.1",
