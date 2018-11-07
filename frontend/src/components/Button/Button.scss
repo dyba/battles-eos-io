@@ -1,0 +1,34 @@
+.Button {
+  cursor: pointer;
+  background-size: 100%;
+  margin: 0 6px;
+  color: #fff;
+  width: 188.5px;
+  height: 58px;
+  background-size: 100%;
+  font-size: 15.4px;
+  letter-spacing: 2.5px;
+
+  &.green {
+    background-image: url(./images/Game_buttons2.png);
+  }
+
+  &.red {
+    background-image: url(./images/Game_buttons1.png);
+  }
+
+  &:hover {
+    background-position: 0 -58px;
+  }
+
+  &.small {
+    height: 50px;
+    width: 162.5px;
+    font-size: 14px;
+    line-height: 20px;
+
+    &:hover {
+      background-position: 0 -50px;
+    }
+  }
+}
