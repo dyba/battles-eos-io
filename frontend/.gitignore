@@ -11,6 +11,8 @@
 
 /dist
 
+**/*.css
+
 # misc
 .DS_Store
 .env.local
